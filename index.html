@@ -729,12 +729,70 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_1 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_30 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_60 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_90 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_120 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_150 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_180 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_210 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_240 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_270 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_300 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_330 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_360 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_390 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_405 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_420 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_435 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_450 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
+	this.frame_465 = function() {
+		window.dispatchEvent(new Event('timerSFX'));
+	}
 	this.frame_479 = function() {
 		this.stop();
+		window.dispatchEvent(new Event('timerSFX'));
 		window.dispatchEvent(new Event('fail'));
 	}
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(479).call(this.frame_479).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(29).call(this.frame_30).wait(30).call(this.frame_60).wait(30).call(this.frame_90).wait(30).call(this.frame_120).wait(30).call(this.frame_150).wait(30).call(this.frame_180).wait(30).call(this.frame_210).wait(30).call(this.frame_240).wait(30).call(this.frame_270).wait(30).call(this.frame_300).wait(30).call(this.frame_330).wait(30).call(this.frame_360).wait(30).call(this.frame_390).wait(15).call(this.frame_405).wait(15).call(this.frame_420).wait(15).call(this.frame_435).wait(15).call(this.frame_450).wait(15).call(this.frame_465).wait(14).call(this.frame_479).wait(1));
 	// timer
 	this.shape = new cjs.Shape();
 	this.shape.graphics.f("#FFFFFF").s().p("Ag9BLQgZgSABggQAAgYAZggIArg4QAFgFAGAAIA0AAQABAAAAAAQABAAAAABQABAAAAAAQABAAABABIABAEIgBAEIgiAsQAWAAAWAQQALAHAHANQAIALAAAPQgBAegYATQgXAUgnAAQglAAgYgSgAgLANQgGAFAAAHQAAAIAGAEQAFAEAGAAQAIAAAGgEQAEgEAAgIQAAgHgEgFQgGgEgIAAQgGAAgFAEg");
@@ -2804,6 +2862,7 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 		var swoosh = new Audio('swoosh.mp3');
 		var btnSFX = new Audio('button.mp3');
 		var shootSFX = new Audio('shot.mp3');
+		var timerSFX = new Audio('timer.mp3');
 		var screamSFX = new Audio('scream.mp3');
 		var successSFX = new Audio('success.mp3');
 		var failSFX = new Audio('fail.mp3');
@@ -2811,6 +2870,9 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 		var upgradeSFX = new Audio('upgrade.mp3');
 		musicBG.loop = true;
 		alarmSFX.loop = true;
+		window.addEventListener('timerSFX', function () {
+			timerSFX.play();
+		});
 		window.addEventListener('screamSFX', function () {
 			screamSFX.play();
 		});
@@ -3021,8 +3083,8 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"index_atlas_P_.png?1685534496220", id:"index_atlas_P_"},
-		{src:"index_atlas_NP_.jpg?1685534496220", id:"index_atlas_NP_"}
+		{src:"index_atlas_P_.png?1685535740025", id:"index_atlas_P_"},
+		{src:"index_atlas_NP_.jpg?1685535740025", id:"index_atlas_NP_"}
 	],
 	preloads: []
 };
