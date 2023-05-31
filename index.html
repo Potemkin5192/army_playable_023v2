@@ -1497,15 +1497,6 @@ p.nominalBounds = new cjs.Rectangle(-314,-480,390.9,410.3);
 p.nominalBounds = new cjs.Rectangle(-318,-106,636,212);
 (lib.majas = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
-	// timeline functions:
-	this.frame_2 = function() {
-		window.dispatchEvent(new Event('shot'));
-	}
-	this.frame_32 = function() {
-		window.dispatchEvent(new Event('shot'));
-	}
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(2).call(this.frame_2).wait(30).call(this.frame_32).wait(58));
 	// muzzle.png
 	this.instance = new lib.muzzle();
 	this.instance.parent = this;
@@ -2291,15 +2282,21 @@ p.nominalBounds = new cjs.Rectangle(-1040,-1001,2039,2000);
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_2 = function() {
+		window.dispatchEvent(new Event('shot'));
+	}
+	this.frame_19 = function() {
+		window.dispatchEvent(new Event('screamSFX'));
+	}
 	this.frame_32 = function() {
 		window.dispatchEvent(new Event('failSFX'));
+		window.dispatchEvent(new Event('shot'));
 	}
 	this.frame_65 = function() {
 		this.stop();
-		this.maja.gotoAndStop(0);
 	}
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(32).call(this.frame_32).wait(33).call(this.frame_65).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(2).call(this.frame_2).wait(17).call(this.frame_19).wait(13).call(this.frame_32).wait(33).call(this.frame_65).wait(1));
 	// failtext
 	this.instance = new lib.fail_text();
 	this.instance.parent = this;
@@ -2807,12 +2804,16 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 		var swoosh = new Audio('swoosh.mp3');
 		var btnSFX = new Audio('button.mp3');
 		var shootSFX = new Audio('shot.mp3');
+		var screamSFX = new Audio('scream.mp3');
 		var successSFX = new Audio('success.mp3');
 		var failSFX = new Audio('fail.mp3');
 		var alarmSFX = new Audio('alarm.mp3');
 		var upgradeSFX = new Audio('upgrade.mp3');
 		musicBG.loop = true;
 		alarmSFX.loop = true;
+		window.addEventListener('screamSFX', function () {
+			screamSFX.play();
+		});
 		window.addEventListener('poofSfx', function () {
 			poofSFX.play();
 			upgradeSFX.play();
@@ -2983,6 +2984,7 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 				poofSFX.volume = 0;
 				shootSFX.volume = 0;
 				successSFX.volume = 0;
+				screamSFX.volume = 0;
 				failSFX.volume = 0;
 				alarmSFX.volume = 0;
 				upgradeSFX.volume = 0;
@@ -2992,6 +2994,7 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 				btnSFX.volume = 1;
 				poofSFX.volume = 1;
 				successSFX.volume = 1;
+				screamSFX.volume = 1;
 				failSFX.volume = 1;
 				alarmSFX.volume = 0.6;
 				shootSFX.volume = 0.5;
@@ -3018,8 +3021,8 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"index_atlas_P_.png?1685525995673", id:"index_atlas_P_"},
-		{src:"index_atlas_NP_.jpg?1685525995673", id:"index_atlas_NP_"}
+		{src:"index_atlas_P_.png?1685534496220", id:"index_atlas_P_"},
+		{src:"index_atlas_NP_.jpg?1685534496220", id:"index_atlas_NP_"}
 	],
 	preloads: []
 };
